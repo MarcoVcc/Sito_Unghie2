@@ -208,17 +208,18 @@
   */
 
   /* Esempio 16: Beige caldo sfondo, blu notte testo */
-  /*
-  --bg-color: linear-gradient(180deg,#E4D1B0 0%, #DAC8A3 100%);
-  --card-bg: rgba(10,26,46,.08);
-  --card-bg-active: rgba(10,26,46,.14);
-  --text-main: #0A1A2E;
+  
+  --bg-color: linear-gradient(180deg, #bdbaf7 0%, #a6afe8 100%);
+  --card-bg: rgba(255, 255, 255, 0.297);
+  --card-bg-active: rgba(255, 255, 255, 0.444);
+  --text-main: #0e2849;
   --text-secondary: #071623;
-  --filter-bg: #F5EAE0;
-  --filter-text: #0A1A2E;
-  --filter-bg-active: #E4D1B0;
-  --filter-text-active: #0A1A2E;
-  */
+  --filter-bg: #ffffff34;
+  --filter-text: #0e2849;
+  --filter-bg-active: #fbfbfb71;
+  --filter-text-active: #0e2849;
+  
+
 
 
   /* Esempio 17: Blu notte + legno */
@@ -276,7 +277,7 @@
   --filter-bg-active: #d3bb9c;
   --filter-text-active: #3A3832;
 */
-
+/*
   --bg-color: linear-gradient(180deg,#0C5A5E 0%, #073E44 100%);
   --card-bg: rgba(244,239,230,.08);
   --card-bg-active: rgba(244, 239, 230, 0.14);
@@ -286,7 +287,7 @@
   --filter-text: #0F3F3C;
   --filter-bg-active: #1E6F6A;
   --filter-text-active: #F4EFE6;
-
+*/
 }
 
 * { box-sizing: border-box; }
@@ -356,7 +357,7 @@ body {
   transform: translateY(-2px);
   background: var(--filter-bg-active);
   color: var(--filter-text-active);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.25);
 }
 
 /* CONTENUTO */
