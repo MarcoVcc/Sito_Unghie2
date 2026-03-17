@@ -1,0 +1,619 @@
+:root {
+  /* Esempio 1: Petrolio attuale */
+  /*
+  --bg-color: linear-gradient(180deg,#0C5A5E 0%, #073E44 100%);
+  --card-bg: rgba(244,239,230,.08);
+  --card-bg-active: rgba(244,239,230,.14);
+  --text-main: #F4F1EC;
+  --text-secondary: #C8C3B7;
+  --filter-bg: #E8DFD2;
+  --filter-text: #0F3F3C;
+  --filter-bg-active: #1E6F6A;
+  --filter-text-active: #F4EFE6;
+  */
+
+  /* Esempio 2: Navy con beige */
+  /*
+  --bg-color: linear-gradient(180deg,#1A2A3A 0%, #0F1A24 100%);
+  --card-bg: rgba(245,240,220,.08);
+  --card-bg-active: rgba(245,240,220,.14);
+  --text-main: #F5F0E0;
+  --text-secondary: #C8BFA0;
+  --filter-bg: #E5D5B8;
+  --filter-text: #1A2A3A;
+  --filter-bg-active: #2C3E50;
+  --filter-text-active: #F5F0E0;
+  */
+
+  /* Esempio 3: Ottanio con bianco panna */
+  /*
+  --bg-color: linear-gradient(180deg,#2C4A3E 0%, #1A2F26 100%);
+  --card-bg: rgba(250,245,240,.08);
+  --card-bg-active: rgba(250,245,240,.14);
+  --text-main: #F9F5F0;
+  --text-secondary: #D4C4B0;
+  --filter-bg: #E8D5C0;
+  --filter-text: #2C4A3E;
+  --filter-bg-active: #3D5A4A;
+  --filter-text-active: #F9F5F0;
+  */
+
+  /* Esempio 4: Blu scuro con crema */
+  /*
+  --bg-color: linear-gradient(180deg,#1E3A5F 0%, #0F1F3F 100%);
+  --card-bg: rgba(248,242,230,.08);
+  --card-bg-active: rgba(248,242,230,.14);
+  --text-main: #F8F2E0;
+  --text-secondary: #D0BFA0;
+  --filter-bg: #E6D4B8;
+  --filter-text: #1E3A5F;
+  --filter-bg-active: #2E4A6F;
+  --filter-text-active: #F8F2E0;
+  */
+
+  /* Esempio 5: Petrolio chiaro con beige */
+  /*
+  --bg-color: linear-gradient(180deg,#2E6B5E 0%, #1F4A42 100%);
+  --card-bg: rgba(246,240,225,.08);
+  --card-bg-active: rgba(246,240,225,.14);
+  --text-main: #F6F0E5;
+  --text-secondary: #C9BFA5;
+  --filter-bg: #E9D8C0;
+  --filter-text: #2E6B5E;
+  --filter-bg-active: #3F7B6E;
+  --filter-text-active: #F6F0E5;
+  */
+
+  /* Esempio 6: Navy con bianco caldo */
+  /*
+  --bg-color: linear-gradient(180deg,#1B2B3C 0%, #0E1A26 100%);
+  --card-bg: rgba(249,244,235,.08);
+  --card-bg-active: rgba(249,244,235,.14);
+  --text-main: #F9F4E5;
+  --text-secondary: #D2C5A5;
+  --filter-bg: #E7D6B5;
+  --filter-text: #1B2B3C;
+  --filter-bg-active: #2B3B4C;
+  --filter-text-active: #F9F4E5;
+ */
+
+  /* Esempio 7: Ottanio scuro con beige chiaro */
+  /*
+  --bg-color: linear-gradient(180deg,#1F3A2E 0%, #0F241C 100%);
+  --card-bg: rgba(247,242,230,.08);
+  --card-bg-active: rgba(247,242,230,.14);
+  --text-main: #F7F2E0;
+  --text-secondary: #CDBFA0;
+  --filter-bg: #E5D0B0;
+  --filter-text: #1F3A2E;
+  --filter-bg-active: #2F4A3E;
+  --filter-text-active: #F7F2E0;
+   */
+
+  /* Esempio 8: Blu profondo con panna */
+  /*
+  --bg-color: linear-gradient(180deg,#0F2A4A 0%, #071532 100%);
+  --card-bg: rgba(250,248,240,.08);
+  --card-bg-active: rgba(250,248,240,.14);
+  --text-main: #FAF8F0;
+  --text-secondary: #D5CBB0;
+  --filter-bg: #E9D8C5;
+  --filter-text: #0F2A4A;
+  --filter-bg-active: #1F3A5A;
+  --filter-text-active: #FAF8F0;
+  */
+
+  /* Esempio 9: Petrolio con beige dorato */
+  /*
+  --bg-color: linear-gradient(180deg,#0A5A50 0%, #063A34 100%);
+  --card-bg: rgba(245,238,220,.08);
+  --card-bg-active: rgba(245,238,220,.14);
+  --text-main: #F5EEE0;
+  --text-secondary: #C8B895;
+  --filter-bg: #E4C8A0;
+  --filter-text: #0A5A50;
+  --filter-bg-active: #1A6A60;
+  --filter-text-active: #F5EEE0;
+  */
+
+  /* Esempio 10: Navy con crema */
+   /*
+  --bg-color: linear-gradient(180deg,#1C2E3F 0%, #0D1B27 100%);
+  --card-bg: rgba(248,245,235,.08);
+  --card-bg-active: rgba(248,245,235,.14);
+  --text-main: #F8F5E5;
+  --text-secondary: #CFBFA5;
+  --filter-bg: #E6D3B5;
+  --filter-text: #1C2E3F;
+  --filter-bg-active: #2C3E4F;
+  --filter-text-active: #F8F5E5;
+   */
+
+  /* Variabili attuali (petrolio) */
+   /*
+  --bg-color: linear-gradient(180deg,#0C5A5E 0%, #073E44 100%);
+  --card-bg: rgba(244,239,230,.08);
+  --card-bg-active: rgba(244, 239, 230, 0.14);
+  --text-main: #F4F1EC;
+  --text-secondary: #C8C3B7;
+  --filter-bg: #E8DFD2;
+  --filter-text: #0F3F3C;
+  --filter-bg-active: #1E6F6A;
+  --filter-text-active: #F4EFE6;
+   */
+
+  /* Esempio 11: Blu notte + oro */
+  /*
+  --bg-color: linear-gradient(180deg,#06074e 0%, #051024 100%);
+  --card-bg: rgba(250,245,230,.08);
+  --card-bg-active: rgba(250,245,230,.14);
+  --text-main: #D4AF37;
+  --text-secondary: #B3952B;
+  --filter-bg: #f1c69a;
+  --filter-text: #0A1A2E;
+  --filter-bg-active: #091623;
+  --filter-text-active: #D4AF37;
+  */
+
+  /* Esempio 12: Oro sfondo, blu notte testo */
+  /*
+  --bg-color: linear-gradient(180deg,#D4AF37 0%, #B8952B 100%);
+  --card-bg: rgba(10,26,46,.08);
+  --card-bg-active: rgba(10,26,46,.14);
+  --text-main: #0A1A2E;
+  --text-secondary: #071623;
+  --filter-bg: #FAF0E6;
+  --filter-text: #0A1A2E;
+  --filter-bg-active: #D4AF37;
+  --filter-text-active: #0A1A2E;
+ */
+
+  /* Esempio 13: Blu notte + rosa cipria */
+  /*
+  --bg-color: linear-gradient(180deg,#06082b 0%, #051024 100%);
+  --card-bg: rgba(250,245,245,.08);
+  --card-bg-active: rgba(250,245,245,.14);
+  --text-main: #F2D1C9;
+  --text-secondary: #D8B0A8;
+  --filter-bg: #F8E8E4;
+  --filter-text: #0A1A2E;
+  --filter-bg-active: #091623;
+  --filter-text-active: #F2D1C9;
+  */
+
+  /* Esempio 14: Rosa cipria sfondo, blu notte testo */
+  /*
+  --bg-color: linear-gradient(180deg,#F2D1C9 0%, #E6C2B8 100%);
+  --card-bg: #e7ad9ea5;
+  --card-bg-active: #e7ad9ea5;
+  --text-main: #0A1A2E;
+  --text-secondary: #071623;
+  --filter-bg: #F8E8E4;
+  --filter-text: #0A1A2E;
+  --filter-bg-active: #F2D1C9;
+  --filter-text-active: #0A1A2E;
+  */
+
+  /* Esempio 15: Blu notte + beige caldo */
+  /*
+  --bg-color: linear-gradient(180deg,#0A1A2E 0%, #051024 100%);
+  --card-bg: rgba(245,240,225,.08);
+  --card-bg-active: rgba(245,240,225,.14);
+  --text-main: #E4D1B0;
+  --text-secondary: #CBB89A;
+  --filter-bg: #F5EAE0;
+  --filter-text: #0A1A2E;
+  --filter-bg-active: #091623;
+  --filter-text-active: #E4D1B0;
+  */
+
+  /* Esempio 16: Beige caldo sfondo, blu notte testo */
+  /*
+  --bg-color: linear-gradient(180deg,#E4D1B0 0%, #DAC8A3 100%);
+  --card-bg: rgba(10,26,46,.08);
+  --card-bg-active: rgba(10,26,46,.14);
+  --text-main: #0A1A2E;
+  --text-secondary: #071623;
+  --filter-bg: #F5EAE0;
+  --filter-text: #0A1A2E;
+  --filter-bg-active: #E4D1B0;
+  --filter-text-active: #0A1A2E;
+  */
+
+
+  /* Esempio 17: Blu notte + legno */
+  /*
+  --bg-color: linear-gradient(180deg,#0b0a2e 0%, #051024 100%);
+  --card-bg: rgba(235,220,200,.08);
+  --card-bg-active: rgba(235,220,200,.14);
+  --text-main: #8B6D5C;
+  --text-secondary: #7A5B4A;
+  --filter-bg: #F0E4DA;
+  --filter-text: #0A1A2E;
+  --filter-bg-active: #091623;
+  --filter-text-active: #8B6D5C;
+  */
+  
+  /* Esempio 18: Legno sfondo, blu notte testo */
+  /*
+  --bg-color: linear-gradient(180deg,#8B6D5C 0%, #7A5B4A 100%);
+  --card-bg: rgba(10,26,46,.08);
+  --card-bg-active: rgba(10,26,46,.14);
+  --text-main: #0A1A2E;
+  --text-secondary: #071623;
+  --filter-bg: #F0E4DA;
+  --filter-text: #0A1A2E;
+  --filter-bg-active: #8B6D5C;
+  --filter-text-active: #0A1A2E;
+*/
+
+  /* image shadow / outline */
+  --image-shadow: 0 0 12px rgba(0,0,0,0.3);
+  --radius: 16px;
+  --transition: 0.25s ease;
+
+  /* alternate colour sets – uncomment one at a time to test */
+  /*
+  --bg-color: linear-gradient(180deg,#203A4C 0%, #122933 100%);
+  --card-bg: rgba(232,229,221,.08);
+  --card-bg-active: rgba(232,229,221,.14);
+  --text-main: #E8E6E1;
+  --text-secondary: #BBB3A0;
+  --filter-bg: #DDD6C3;
+  --filter-text: #203A4C;
+  --filter-bg-active: #1A2C33;
+  --filter-text-active: #E8E6E1;
+*/
+
+/*
+  --bg-color: linear-gradient(180deg,#dac9b3 0%, #c2ae9e 100%);
+  --card-bg: rgba(250,245,240,.08);
+  --card-bg-active: rgba(250,245,240,.14);
+  --text-main: #172052;
+  --text-secondary: #172052;
+  --filter-bg: #c4b096;
+  --filter-text: #172052;
+  --filter-bg-active: #d3bb9c;
+  --filter-text-active: #3A3832;
+*/
+
+/*
+  --bg-color: linear-gradient(180deg,#0C5A5E 0%, #063338 100%);
+  --card-bg: rgba(244,239,230,.08);
+  --card-bg-active: rgba(244, 239, 230, 0.14);
+  --text-main: #F4F1EC;
+  --text-secondary: #C8C3B7;
+  --filter-bg: #E8DFD2;
+  --filter-text: #0F3F3C;
+  --filter-bg-active: #1E6F6A;
+  --filter-text-active: #F4EFE6;
+*/
+
+  --bg-color: linear-gradient(180deg, #bdbaf7 0%, #a6afe8 100%);
+  --footer-color: #a6afe8;
+  --card-bg: rgba(255, 255, 255, 0.297);
+  --card-bg-active: rgba(255, 255, 255, 0.444);
+  --text-main: #0e2849;
+  --text-secondary: #071623;
+  --filter-bg: #ffffff34;
+  --filter-text: #0e2849;
+  --filter-bg-active: #fbfbfb71;
+  --filter-text-active: #0e2849;
+
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background-color: var(--footer-color);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100svh;
+  line-height: 1.5;
+  background-color: var(--footer-color);
+  background-image: var(--bg-color);
+  color: var(--text-main);
+  overscroll-behavior: none;
+}
+
+/* HEADER */
+.header {
+  padding: 24px 16px;
+  text-align: center;
+}
+.logo {
+  max-width: 80px;
+  margin-bottom: 4px;
+}
+.site-title {
+  margin-top: 4px;
+  font-family: 'Playfair Display SC', serif;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+.address {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* FILTRI */
+.filters {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  overflow-x: auto;
+}
+.filter-btn {
+  min-width: auto;
+  padding: 12px 16px;
+  height: auto;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: var(--radius);
+  border: none;
+  background: var(--filter-bg);
+  color: var(--filter-text);
+  display: flex;
+  align-items: center;        /* centro verticale */
+  justify-content: center;    /* centro orizzontale */
+  white-space: nowrap;        /* 🔥 niente a capo */
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.filter-btn.active {
+  transform: translateY(-2px);
+  font-weight: 700;
+  font-size: 16px;
+  background: var(--filter-bg-active);
+  color: var(--filter-text-active);
+  box-shadow: 0 0px 15px rgba(0,0,0,0.25);
+}
+
+/* CONTENUTO */
+.treatments {
+  padding: 16px;
+}
+
+/* CARD */
+.category {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.category.open {
+  background: var(--card-bg-active);
+}
+
+/* HEADER CARD */
+.category-header {
+  width: 100%;
+  padding: 16px;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+.category-header .left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-price {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.toggle {
+  margin-left: auto;
+  font-size: 22px;
+  transform: rotate(90deg);
+  transition: transform var(--transition);
+  opacity: 0.7;
+}
+.category.open .toggle {
+  transform: rotate(-90deg);
+}
+
+/* ACCORDION */
+.category-content {
+  display: none;
+  padding: 0 16px 16px;
+  opacity: 0;
+  transform: translateY(-6px);
+}
+.category.open .category-content {
+  display: block;
+  animation: accordionOpen 0.25s ease forwards;
+}
+@keyframes accordionOpen {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TRATTAMENTI */
+.treatment {
+  margin-top: 14px;
+  cursor: pointer;
+}
+.treatment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.treatment-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.open-icon {
+  font-size: 18px;
+  opacity: 0.4;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.info-icon {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  font-size: 8px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.45;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.treatment:hover .open-icon {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.treatment-name {
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.duration {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* NOTE */
+.section-note {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+/* FOOTER */
+.footer {
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 20px;
+  color: var(--text-secondary);
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.modal.open {
+  display: flex;
+}
+
+/* QUI È LA DIFFERENZA */
+.modal-content {
+  /* same background as main page for consistency */
+  background: var(--bg-color);
+  color: var(--text-main);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  animation: modalUp 0.25s ease;
+}
+@keyframes modalUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #F4EFE6;
+  font-size: 28px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+/* keep the treatment image from growing too large */
+.modal-image {
+  width: 100%;
+  max-width: 200px;
+  display: block;
+  margin: 40px auto 20px;
+}
+
+.modal-meta {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+
+#modalTitle {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.whatsapp-float {
+  position: static;
+  width: auto;
+  height: auto;
+  background: none;
+  box-shadow: none;
+}
+
+.whatsapp-float img {
+  width: 42px;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.whatsapp-float:hover img {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.site-footer {
+  margin: 0px 0 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.site-footer img {
+  width: 42px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.site-footer img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.instagram-link img {
+  width: 42px;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.instagram-link:hover img {
+  opacity: 1;
+  transform: scale(1.05);
+}
