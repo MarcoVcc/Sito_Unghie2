@@ -16,7 +16,7 @@
     },
     {
       "type": "promo",
-      "active": true,
+      "active": false,
       "title": "Promo semipermanente",
       "tag": "Attiva",
       "caption": "Applicazione semipermanente con manicure preparatoria e finish luminoso.",
