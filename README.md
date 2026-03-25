@@ -5,15 +5,56 @@ Questo progetto usa due file JSON per gestire i contenuti senza toccare il codic
 1. `treatments.json`
 2. `events.json`
 
-Modifica solo questi file per aggiornare listino, eventi e promozioni.
+In piu' c'e' un file di configurazione:
+
+3. `site-config.js`
+
+Modifica questi file per aggiornare contenuti e configurazione senza toccare la logica principale.
+
+## `site-config.js`
+
+Serve per attivare o disattivare Umami.
+
+### Struttura
+
+```js
+window.SITE_CONFIG = {
+  umamiEnabled: false,
+  umamiWebsiteId: "d5955fa0-bba7-43d1-929b-6f62bb11d097"
+};
+```
+
+### Come usarlo
+
+1. In locale o durante le prove: lascia `umamiEnabled: false`
+2. Prima del push sul sito ufficiale: imposta `umamiEnabled: true`
+3. Se non vuoi tracciare nulla: lascia sempre `false`
+
+Con `false`, Umami non viene neppure caricato e quindi non sporca le statistiche.
 
 ## Regole Generali
 
 1. Usa sempre le virgolette doppie `"`.
 2. Dopo ogni blocco, se ce n'e' un altro sotto, serve la virgola.
 3. Non lasciare virgole finali dopo l'ultimo elemento.
-4. Le immagini vanno salvate nella cartella del progetto e richiamate con il nome file corretto, ad esempio `"Img_WorkshopArmocromia.png"`.
+4. Gli asset vanno salvati nelle cartelle giuste dentro `Immagini/` e richiamati con il percorso corretto.
 5. Se qualcosa non appare sul sito, controlla prima che il JSON sia scritto correttamente.
+
+## Struttura immagini e PDF
+
+Usa questa struttura per tenere in ordine il progetto:
+
+1. `Immagini/Attestati` per i PDF degli attestati
+2. `Immagini/Eventi` per le immagini di eventi e promozioni
+3. `Immagini/Generiche` per logo, foto profilo e immagini varie
+4. `Immagini/Trattamenti` per le immagini dei trattamenti
+
+Esempi di percorsi corretti:
+
+1. `Immagini/Eventi/Img_WorkshopArmocromia.png`
+2. `Immagini/Generiche/logo.png`
+3. `Immagini/Trattamenti/Kombi_Manicure/1.jpg`
+4. `Immagini/Attestati/Attestato_CactusNailManicure.pdf`
 
 ## `events.json`
 
@@ -40,7 +81,7 @@ Se `active` e' `false`, l'elemento resta salvato ma non viene mostrato.
 5. `caption`: testo descrittivo
 6. `price`: testo in evidenza, per esempio `"10 euro"` o `"da 30 euro"`
 7. `subtitle`: testo secondario sotto o accanto al prezzo
-8. `image`: nome file immagine, facoltativo, usato soprattutto per gli eventi
+8. `image`: percorso immagine, facoltativo, usato soprattutto per gli eventi
 9. `imageAlt`: testo alternativo immagine
 10. `ctaLabel`: testo del link finale
 11. `ctaUrl`: link finale
@@ -54,7 +95,7 @@ Se `active` e' `false`, l'elemento resta salvato ma non viene mostrato.
   "active": true,
   "title": "Brinda ai tuoi colori",
   "tag": "Workshop",
-  "image": "Img_WorkshopArmocromia.png",
+  "image": "Immagini/Eventi/Img_WorkshopArmocromia.png",
   "imageAlt": "Workshop Brinda ai tuoi colori",
   "caption": "Workshop di armocromia con prova drappi dal vivo e aperitivo finale.",
   "price": "10 euro",
@@ -74,7 +115,7 @@ Se `active` e' `false`, l'elemento resta salvato ma non viene mostrato.
   "title": "Promo manicure",
   "tag": "Promo",
   "caption": "Manicure con trattamento rinforzante e finish luminoso.",
-  "price": "da 25 euro",
+  "price": "da 25 euro"
 }
 ```
 
@@ -121,7 +162,7 @@ La struttura e':
 2. `price`: prezzo
 3. `duration`: durata
 4. `description`: descrizione nel popup
-5. `image`: immagine del popup
+5. `image`: percorso immagine del popup
 
 ### Esempio trattamento
 
@@ -131,7 +172,7 @@ La struttura e':
   "price": 20,
   "duration": "30 min",
   "description": "Descrizione del trattamento.",
-  "image": "logo.png"
+  "image": "Immagini/Generiche/logo.png"
 }
 ```
 

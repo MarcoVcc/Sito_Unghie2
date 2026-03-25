@@ -982,8 +982,8 @@ body.menu-open {
 
 .about-copy p {
   margin-bottom: 14px;
-  font-size: 16px;
-  line-height: 1.75;
+  font-size: 15px;
+  line-height: 1.72;
 }
 
 .about-copy p:last-child {
@@ -1130,22 +1130,117 @@ body.menu-open {
   font-size: 14px;
 }
 
-.cert-grid {
-  display: grid;
+.cert-gallery {
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-content: center;
+  align-items: start;
 }
 
 .cert-card {
-  background: var(--surface);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius);
-  padding: 14px 16px;
-  font-weight: 600;
+  flex: 0 0 auto;
 }
 
-.cert-gallery {
-  min-height: 140px;
+.cert-card-landscape {
+  width: min(100%, 232px);
+}
+
+.cert-card-portrait {
+  width: min(100%, 148px);
+}
+
+.cert-zoom {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.cert-preview-frame {
+  width: 100%;
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 4px);
+  border: 1px solid rgba(59,42,42,0.08);
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(59,42,42,0.1);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.cert-zoom-landscape .cert-preview-frame {
+  aspect-ratio: 842 / 595;
+}
+
+.cert-zoom-portrait .cert-preview-frame {
+  aspect-ratio: 595.28 / 841.89;
+}
+
+.cert-zoom:hover .cert-preview-frame {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(59,42,42,0.14);
+}
+
+.cert-preview-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cert-zoom-icon {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(59,42,42,0.08);
+  color: var(--text-main);
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(59,42,42,0.12);
+}
+
+body.cert-modal-open {
+  overflow: hidden;
+}
+
+.cert-modal-content {
+  width: min(92vw, 900px);
+  height: auto;
+  max-height: 92vh;
+  padding: 54px 18px 18px;
+  border-radius: calc(var(--radius) + 10px);
+  background: rgba(255,255,255,0.96);
+  background-image: none;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.24);
+}
+
+.cert-modal-shell {
+  width: 100%;
+  max-height: min(78vh, 980px);
+  border-radius: calc(var(--radius) - 2px);
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-modal-viewer {
+  width: auto;
+  max-width: 100%;
+  max-height: min(78vh, 980px);
+  display: block;
+  object-fit: contain;
 }
 
 
@@ -1314,8 +1409,12 @@ body.menu-open {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .cert-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .cert-card-landscape {
+    width: 276px;
+  }
+
+  .cert-card-portrait {
+    width: 170px;
   }
 
   .service-grid {

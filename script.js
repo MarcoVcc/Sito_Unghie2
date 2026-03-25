@@ -1,9 +1,54 @@
+const siteConfig = window.SITE_CONFIG || {};
+const analyticsState = {
+  enabled: Boolean(siteConfig.umamiEnabled),
+  websiteId: siteConfig.umamiWebsiteId || "",
+  queue: []
+};
+
 document.addEventListener("DOMContentLoaded", () => {
+  initAnalytics();
   initMobileMenu();
   initModal();
+  initCertificateModal();
   initListino();
   initEvents();
 });
+
+/* ---------------- CONFIG / ANALYTICS ---------------- */
+function initAnalytics() {
+  if (!analyticsState.enabled || !analyticsState.websiteId) return;
+
+  const script = document.createElement("script");
+  script.defer = true;
+  script.src = "https://cloud.umami.is/script.js";
+  script.dataset.websiteId = analyticsState.websiteId;
+  script.onload = flushUmamiQueue;
+
+  document.head.appendChild(script);
+}
+
+function flushUmamiQueue() {
+  if (!window.umami || typeof window.umami.track !== "function") return;
+
+  analyticsState.queue.forEach(item => {
+    window.umami.track(item.eventName, item.props);
+  });
+
+  analyticsState.queue = [];
+}
+
+function trackUmamiEvent(eventName, props) {
+  if (!analyticsState.enabled || !analyticsState.websiteId) return;
+
+  if (window.umami && typeof window.umami.track === "function") {
+    window.umami.track(eventName, props);
+    return;
+  }
+
+  if (analyticsState.queue.length < 50) {
+    analyticsState.queue.push({ eventName, props });
+  }
+}
 
 /* ---------------- MENU MOBILE ---------------- */
 function initMobileMenu() {
@@ -64,8 +109,6 @@ function initListino() {
       buildFilters(data.categories);
       buildTreatments(data.categories);
       filterCategories("all");
-
-      // Dopo aver costruito tutto, attiva il tracking sui filtri e toggle categorie
       initTracking();
     });
 }
@@ -134,13 +177,9 @@ function buildPromoCard(item) {
   const card = document.createElement("article");
   card.className = "offer-card offer-card-promo";
 
-  const top = buildOfferTop(item.title, item.tag);
-  const caption = buildOfferCaption(item.caption);
-  const meta = buildOfferMeta(item.price, item.subtitle, false);
-
-  card.appendChild(top);
-  card.appendChild(caption);
-  card.appendChild(meta);
+  card.appendChild(buildOfferTop(item.title, item.tag));
+  card.appendChild(buildOfferCaption(item.caption));
+  card.appendChild(buildOfferMeta(item.price, item.subtitle, false));
 
   return card;
 }
@@ -227,24 +266,24 @@ function buildFilters(categories) {
   allBtn.className = "filter-btn active";
   allBtn.innerHTML = "<span>Tutti</span>";
   allBtn.onclick = () => {
-    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".filter-btn").forEach(button => button.classList.remove("active"));
     allBtn.classList.add("active");
     filterCategories("all");
     trackUmamiEvent("Filtro cliccato", { filtro: "Tutti" });
   };
   filters.appendChild(allBtn);
 
-  categories.forEach(cat => {
-    const btn = document.createElement("button");
-    btn.className = "filter-btn";
-    btn.innerHTML = `<span>${cat.label}</span>`;
-    btn.onclick = () => {
-      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      filterCategories(cat.id);
-      trackUmamiEvent("Filtro cliccato", { filtro: cat.label });
+  categories.forEach(category => {
+    const button = document.createElement("button");
+    button.className = "filter-btn";
+    button.innerHTML = `<span>${category.label}</span>`;
+    button.onclick = () => {
+      document.querySelectorAll(".filter-btn").forEach(filterButton => filterButton.classList.remove("active"));
+      button.classList.add("active");
+      filterCategories(category.id);
+      trackUmamiEvent("Filtro cliccato", { filtro: category.label });
     };
-    filters.appendChild(btn);
+    filters.appendChild(button);
   });
 }
 
@@ -253,11 +292,11 @@ function buildTreatments(categories) {
   const container = document.getElementById("treatments");
   container.innerHTML = "";
 
-  categories.forEach(cat => {
-    cat.sections.forEach(section => {
+  categories.forEach(category => {
+    category.sections.forEach(section => {
       const card = document.createElement("section");
       card.className = "category";
-      card.dataset.category = cat.id;
+      card.dataset.category = category.id;
 
       const header = document.createElement("button");
       header.className = "category-header";
@@ -271,8 +310,8 @@ function buildTreatments(categories) {
 
       header.onclick = () => {
         const wasOpen = card.classList.contains("open");
-        document.querySelectorAll(".category.open").forEach(open => {
-          if (open !== card) open.classList.remove("open");
+        document.querySelectorAll(".category.open").forEach(openCard => {
+          if (openCard !== card) openCard.classList.remove("open");
         });
         card.classList.toggle("open");
 
@@ -285,31 +324,31 @@ function buildTreatments(categories) {
       const content = document.createElement("div");
       content.className = "category-content";
 
-      section.treatments.forEach(t => {
-        const div = document.createElement("div");
-        div.className = "treatment";
-        div.onclick = () => openTreatmentModal(t, cat.label, section.title);
+      section.treatments.forEach(treatment => {
+        const item = document.createElement("div");
+        item.className = "treatment";
+        item.onclick = () => openTreatmentModal(treatment, category.label, section.title);
 
-        div.innerHTML = `
+        item.innerHTML = `
           <div class="treatment-header">
             <span class="treatment-name">
-              ${t.name}
+              ${treatment.name}
               <span class="open-icon info-icon">i</span>
             </span>
-            <span class="price">${t.price}€</span>
+            <span class="price">${treatment.price}€</span>
           </div>
         `;
 
-        content.appendChild(div);
+        content.appendChild(item);
       });
 
       if (section.notes) {
         const notesWrap = document.createElement("div");
         notesWrap.className = "section-note";
         Object.entries(section.notes).forEach(([key, text]) => {
-          const p = document.createElement("div");
-          p.innerHTML = `${key} ${text.replace(/\n/g, "<br>")}`;
-          notesWrap.appendChild(p);
+          const note = document.createElement("div");
+          note.innerHTML = `${key} ${text.replace(/\n/g, "<br>")}`;
+          notesWrap.appendChild(note);
         });
         content.appendChild(notesWrap);
       }
@@ -322,9 +361,9 @@ function buildTreatments(categories) {
 }
 
 function filterCategories(id) {
-  document.querySelectorAll(".category").forEach(cat => {
-    cat.classList.remove("open");
-    cat.style.display = id === "all" || cat.dataset.category === id ? "block" : "none";
+  document.querySelectorAll(".category").forEach(category => {
+    category.classList.remove("open");
+    category.style.display = id === "all" || category.dataset.category === id ? "block" : "none";
   });
 }
 
@@ -332,6 +371,9 @@ function filterCategories(id) {
 let modal = null;
 let closeModal = null;
 let modalOpenTime = null;
+let certificateModal = null;
+let certificateViewer = null;
+let closeCertificateModalButton = null;
 
 function initModal() {
   modal = document.getElementById("treatmentModal");
@@ -350,44 +392,75 @@ function initModal() {
   });
 }
 
-function trackUmamiEvent(eventName, props) {
-  if (window.umami && typeof umami.track === "function") {
-    umami.track(eventName, props);
-  } else {
-    // Se Umami non è pronto, riprova tra 50ms
-    setTimeout(() => trackUmamiEvent(eventName, props), 50);
-  }
-}
+function initCertificateModal() {
+  certificateModal = document.getElementById("certificateModal");
+  certificateViewer = document.getElementById("certificateViewer");
+  closeCertificateModalButton = document.getElementById("closeCertificateModal");
 
-function openTreatmentModal(t, categoria, sezione) {
-  if (!modal) return;
-  document.getElementById("modalTitle").textContent = t.name;
-  document.getElementById("modalMeta").textContent = `${t.price}€ · ${t.duration}`;
-  document.getElementById("modalDescription").innerHTML =
-    t.description.replace(/\n/g, "<br>");
-  document.getElementById("modalImage").src = t.image;
-  modal.classList.add("open");
-  // Aggiunge uno stato alla history per intercettare il back
-  history.pushState({ modal: true }, "");
+  if (!certificateModal || !certificateViewer || !closeCertificateModalButton) return;
 
+  document.querySelectorAll("[data-certificate-image]").forEach(trigger => {
+    trigger.addEventListener("click", () => {
+      openCertificateModal(trigger.dataset.certificateImage, trigger.getAttribute("aria-label"));
+    });
+  });
 
-  console.log("MODAL APERTO", t.name, categoria, sezione);
+  closeCertificateModalButton.addEventListener("click", closeCertificateModal);
+  certificateModal.addEventListener("click", event => {
+    if (event.target === certificateModal) {
+      closeCertificateModal();
+    }
+  });
 
-  // Salva l'orario di apertura
-  modalOpenTime = Date.now();
-
-  // Traccia apertura trattamento
-  trackUmamiEvent("Trattamento aperto", {
-    nome: t.name,
-    categoria: categoria,
-    sezione: sezione,
-    prezzo: t.price
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && certificateModal.classList.contains("open")) {
+      closeCertificateModal();
+    }
   });
 }
 
-// Funzione di chiusura modal con tracking tempo
+function openCertificateModal(imagePath, label) {
+  if (!certificateModal || !certificateViewer || !imagePath) return;
+
+  certificateViewer.src = imagePath;
+  certificateViewer.alt = label ? label.replace("Ingrandisci ", "") : "Attestato ingrandito";
+  certificateModal.classList.add("open");
+  certificateModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("cert-modal-open");
+}
+
+function closeCertificateModal() {
+  if (!certificateModal || !certificateViewer) return;
+
+  certificateModal.classList.remove("open");
+  certificateModal.setAttribute("aria-hidden", "true");
+  certificateViewer.src = "";
+  document.body.classList.remove("cert-modal-open");
+}
+
+function openTreatmentModal(treatment, categoria, sezione) {
+  if (!modal) return;
+
+  document.getElementById("modalTitle").textContent = treatment.name;
+  document.getElementById("modalMeta").textContent = `${treatment.price}€ · ${treatment.duration}`;
+  document.getElementById("modalDescription").innerHTML = treatment.description.replace(/\n/g, "<br>");
+  document.getElementById("modalImage").src = treatment.image;
+  modal.classList.add("open");
+  history.pushState({ modal: true }, "");
+
+  modalOpenTime = Date.now();
+
+  trackUmamiEvent("Trattamento aperto", {
+    nome: treatment.name,
+    categoria,
+    sezione,
+    prezzo: treatment.price
+  });
+}
+
 function closeTreatmentModal() {
   if (!modal) return;
+
   if (modalOpenTime) {
     const durationMs = Date.now() - modalOpenTime;
     const durationSec = Math.round(durationMs / 1000);
@@ -400,17 +473,16 @@ function closeTreatmentModal() {
 
     modalOpenTime = null;
   }
+
   modal.classList.remove("open");
-  // Evita di accumulare history inutili
+
   if (history.state && history.state.modal) {
     history.back();
   }
-
 }
 
 /* ---------------- INIZIALIZZA TRACCIAMENTO FILTRI E TOGGLE ---------------- */
 function initTracking() {
-  // Filtri già tracciati nel buildFilters con trackUmamiEvent
-
-  // Toggle categorie già tracciati nel buildTreatments con header.onclick
+  // Filtri gia' tracciati nel buildFilters con trackUmamiEvent
+  // Toggle categorie gia' tracciati nel buildTreatments con header.onclick
 }
