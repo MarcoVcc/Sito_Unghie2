@@ -1231,17 +1231,13 @@ body.cert-modal-open {
     justify-content: flex-start;
     overflow-x: auto;
     padding: 4px 6px 10px;
-    scroll-snap-type: x proximity;
+    scroll-behavior: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
 
   .cert-gallery::-webkit-scrollbar {
     display: none;
-  }
-
-  .cert-card {
-    scroll-snap-align: start;
   }
 
   .cert-card-landscape {

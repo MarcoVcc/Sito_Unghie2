@@ -379,6 +379,7 @@ let certificateGallery = null;
 let certificateAutoScrollId = null;
 let certificateAutoScrollResumeTimeout = null;
 let certificateAutoScrollDirection = 1;
+let certificateAutoScrollPosition = 0;
 
 function initModal() {
   modal = document.getElementById("treatmentModal");
@@ -439,7 +440,9 @@ function initCertificateAutoScroll() {
     certificateGallery.addEventListener(eventName, queueCertificateAutoScrollResume, { passive: true });
   });
 
+  certificateGallery.addEventListener("scroll", syncCertificateAutoScrollPosition, { passive: true });
   window.addEventListener("resize", queueCertificateAutoScrollResume);
+  window.addEventListener("load", queueCertificateAutoScrollResume);
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
       stopCertificateAutoScroll();
@@ -470,6 +473,7 @@ function startCertificateAutoScroll() {
 
   if (certificateAutoScrollId) return;
 
+  certificateAutoScrollPosition = certificateGallery.scrollLeft;
   certificateAutoScrollDirection = certificateGallery.scrollLeft >= maxScroll ? -1 : 1;
   let lastTimestamp = 0;
 
@@ -488,8 +492,8 @@ function startCertificateAutoScroll() {
 
     const delta = timestamp - lastTimestamp;
     lastTimestamp = timestamp;
-    const distance = delta * 0.035;
-    let nextScroll = certificateGallery.scrollLeft + (distance * certificateAutoScrollDirection);
+    const distance = delta * 0.055;
+    let nextScroll = certificateAutoScrollPosition + (distance * certificateAutoScrollDirection);
 
     if (nextScroll <= 0) {
       nextScroll = 0;
@@ -499,7 +503,8 @@ function startCertificateAutoScroll() {
       certificateAutoScrollDirection = -1;
     }
 
-    certificateGallery.scrollLeft = nextScroll;
+    certificateAutoScrollPosition = nextScroll;
+    certificateGallery.scrollLeft = Math.round(certificateAutoScrollPosition);
     certificateAutoScrollId = requestAnimationFrame(step);
   };
 
@@ -508,11 +513,17 @@ function startCertificateAutoScroll() {
 
 function stopCertificateAutoScroll() {
   clearTimeout(certificateAutoScrollResumeTimeout);
+  syncCertificateAutoScrollPosition();
 
   if (certificateAutoScrollId) {
     cancelAnimationFrame(certificateAutoScrollId);
     certificateAutoScrollId = null;
   }
+}
+
+function syncCertificateAutoScrollPosition() {
+  if (!certificateGallery) return;
+  certificateAutoScrollPosition = certificateGallery.scrollLeft;
 }
 
 function openCertificateModal(imagePath, label) {
