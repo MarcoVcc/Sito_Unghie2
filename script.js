@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initModal();
   initCertificateModal();
   initCertificateAutoScroll();
+  initContactTracking();
   initListino();
   initEvents();
 });
@@ -49,6 +50,50 @@ function trackUmamiEvent(eventName, props) {
   if (analyticsState.queue.length < 50) {
     analyticsState.queue.push({ eventName, props });
   }
+}
+
+function getCurrentPageName() {
+  return document.body?.dataset.page || "unknown";
+}
+
+function buildTrackingProps(props = {}) {
+  return {
+    page: getCurrentPageName(),
+    ...props
+  };
+}
+
+function initContactTracking() {
+  document.querySelectorAll("[data-contact-channel]").forEach(link => {
+    link.addEventListener("click", () => {
+      trackUmamiEvent("contact_click", buildTrackingProps({
+        channel: link.dataset.contactChannel || "unknown",
+        source: link.dataset.contactSource || "unknown"
+      }));
+    });
+  });
+}
+
+function trackEventClick(item) {
+  if (!item) return;
+
+  trackUmamiEvent("event_click", buildTrackingProps({
+    title: item.title || "",
+    item_type: item.type || "",
+    channel: item.ctaType || "link",
+    source: "event_card"
+  }));
+}
+
+function trackCertificateOpen(label) {
+  const certificateName = (label || "Attestato")
+    .replace(/^Ingrandisci attestato\s+/i, "")
+    .replace(/^Ingrandisci\s+/i, "")
+    .trim();
+
+  trackUmamiEvent("certificate_open", buildTrackingProps({
+    certificate: certificateName || "Attestato"
+  }));
 }
 
 /* ---------------- MENU MOBILE ---------------- */
@@ -110,7 +155,6 @@ function initListino() {
       buildFilters(data.categories);
       buildTreatments(data.categories);
       filterCategories("all");
-      initTracking();
     })
     .catch(() => {
       treatments.innerHTML = '<p class="events-empty">Impossibile caricare il listino in questo momento.</p>';
@@ -170,7 +214,7 @@ function buildEventCard(item) {
   body.appendChild(buildOfferMeta(item.price, item.subtitle, true));
 
   if (item.ctaLabel && item.ctaUrl) {
-    body.appendChild(buildOfferCta(item.ctaLabel, item.ctaUrl, item.ctaType));
+    body.appendChild(buildOfferCta(item));
   }
 
   card.appendChild(body);
@@ -233,21 +277,15 @@ function buildOfferMeta(price, subtitle, stacked) {
   return meta;
 }
 
-function buildOfferCta(label, url, type) {
+function buildOfferCta(item) {
   const link = document.createElement("a");
   link.className = "insta-post";
-  link.href = url;
+  link.href = item.ctaUrl;
   link.target = "_blank";
   link.rel = "noopener noreferrer";
-  link.onclick = () => {
-    if (type === "instagram") {
-      trackUmamiEvent("Click Instagram");
-    } else if (type === "whatsapp") {
-      trackUmamiEvent("Click WhatsApp");
-    }
-  };
+  link.addEventListener("click", () => trackEventClick(item));
 
-  if (type === "instagram") {
+  if (item.ctaType === "instagram") {
     const icon = document.createElement("img");
     icon.src = "icons/icons8-instagram.svg";
     icon.alt = "Instagram";
@@ -255,7 +293,7 @@ function buildOfferCta(label, url, type) {
   }
 
   const text = document.createElement("span");
-  text.textContent = label;
+  text.textContent = item.ctaLabel;
   link.appendChild(text);
 
   return link;
@@ -273,7 +311,7 @@ function buildFilters(categories) {
     document.querySelectorAll(".filter-btn").forEach(button => button.classList.remove("active"));
     allBtn.classList.add("active");
     filterCategories("all");
-    trackUmamiEvent("Filtro cliccato", { filtro: "Tutti" });
+    trackUmamiEvent("listino_filter_click", buildTrackingProps({ filter: "Tutti" }));
   };
   filters.appendChild(allBtn);
 
@@ -285,7 +323,7 @@ function buildFilters(categories) {
       document.querySelectorAll(".filter-btn").forEach(filterButton => filterButton.classList.remove("active"));
       button.classList.add("active");
       filterCategories(category.id);
-      trackUmamiEvent("Filtro cliccato", { filtro: category.label });
+      trackUmamiEvent("listino_filter_click", buildTrackingProps({ filter: category.label }));
     };
     filters.appendChild(button);
   });
@@ -320,11 +358,15 @@ function formatFromPrice(value) {
   return `da ${text}\u20AC`;
 }
 
-function createTreatmentRow(treatment, categoryLabel, sectionTitle) {
+function createTreatmentRow(treatment, categoryLabel, sectionTitle, groupTitle = "") {
   const item = document.createElement("button");
   item.type = "button";
   item.className = "treatment";
-  item.onclick = () => openTreatmentModal(treatment, categoryLabel, sectionTitle);
+  item.onclick = () => openTreatmentModal(treatment, {
+    category: categoryLabel,
+    section: sectionTitle,
+    group: groupTitle
+  });
 
   const displayName = treatment.label || treatment.name;
   item.innerHTML = `
@@ -359,7 +401,7 @@ function createTreatmentGroup(group, categoryLabel, sectionTitle) {
   content.className = "treatment-group-content";
 
   (group.treatments || []).forEach(treatment => {
-    content.appendChild(createTreatmentRow(treatment, categoryLabel, sectionTitle));
+    content.appendChild(createTreatmentRow(treatment, categoryLabel, sectionTitle, group.title));
   });
 
   toggle.addEventListener("click", () => {
@@ -376,12 +418,12 @@ function createTreatmentGroup(group, categoryLabel, sectionTitle) {
 
     wrapper.classList.toggle("open");
 
-    trackUmamiEvent("Sottocategoria toggle", {
-      categoria: categoryLabel,
-      sezione: sectionTitle,
-      sottocategoria: group.title,
-      aperta: !wasOpen
-    });
+    trackUmamiEvent("listino_group_toggle", buildTrackingProps({
+      category: categoryLabel,
+      section: sectionTitle,
+      group: group.title,
+      open: !wasOpen
+    }));
   });
 
   wrapper.appendChild(toggle);
@@ -417,10 +459,11 @@ function buildTreatments(categories) {
         });
         card.classList.toggle("open");
 
-        trackUmamiEvent("Categoria toggle", {
-          sezione: section.title,
-          aperta: !wasOpen
-        });
+        trackUmamiEvent("listino_section_toggle", buildTrackingProps({
+          category: category.label,
+          section: section.title,
+          open: !wasOpen
+        }));
       };
 
       const content = document.createElement("div");
@@ -464,6 +507,7 @@ function filterCategories(id) {
 let modal = null;
 let closeModal = null;
 let modalOpenTime = null;
+let modalTrackingContext = null;
 let treatmentModalScrollY = 0;
 let certificateModal = null;
 let certificateViewer = null;
@@ -628,6 +672,7 @@ function openCertificateModal(imagePath, label) {
   certificateModal.classList.add("open");
   certificateModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("cert-modal-open");
+  trackCertificateOpen(label);
 }
 
 function closeCertificateModal() {
@@ -640,7 +685,7 @@ function closeCertificateModal() {
   queueCertificateAutoScrollResume();
 }
 
-function openTreatmentModal(treatment, categoria, sezione) {
+function openTreatmentModal(treatment, context = {}) {
   if (!modal) return;
 
   document.getElementById("modalTitle").textContent = treatment.name;
@@ -654,13 +699,15 @@ function openTreatmentModal(treatment, categoria, sezione) {
   history.pushState({ modal: true }, "");
 
   modalOpenTime = Date.now();
+  modalTrackingContext = {
+    treatment: treatment.name,
+    category: context.category || "",
+    section: context.section || "",
+    group: context.group || "",
+    price: String(treatment.price ?? "")
+  };
 
-  trackUmamiEvent("Trattamento aperto", {
-    nome: treatment.name,
-    categoria,
-    sezione,
-    prezzo: treatment.price
-  });
+  trackUmamiEvent("treatment_open", buildTrackingProps(modalTrackingContext));
 }
 
 function closeTreatmentModal() {
@@ -669,12 +716,13 @@ function closeTreatmentModal() {
   if (modalOpenTime) {
     const durationMs = Date.now() - modalOpenTime;
     const durationSec = Math.round(durationMs / 1000);
-    const treatmentName = document.getElementById("modalTitle").textContent;
 
-    trackUmamiEvent("Durata trattamento", {
-      nome: treatmentName,
-      durata_secondi: durationSec
-    });
+    trackUmamiEvent("treatment_modal_duration", buildTrackingProps({
+      ...(modalTrackingContext || {
+        treatment: document.getElementById("modalTitle").textContent
+      }),
+      duration_seconds: durationSec
+    }));
 
     modalOpenTime = null;
   }
@@ -685,6 +733,8 @@ function closeTreatmentModal() {
   if (history.state && history.state.modal) {
     history.back();
   }
+
+  modalTrackingContext = null;
 }
 
 function lockTreatmentModalScroll() {
@@ -701,9 +751,4 @@ function unlockTreatmentModalScroll() {
   window.scrollTo(0, treatmentModalScrollY);
 }
 
-/* ---------------- INIZIALIZZA TRACCIAMENTO FILTRI E TOGGLE ---------------- */
-function initTracking() {
-  // Filtri gia' tracciati nel buildFilters con trackUmamiEvent
-  // Toggle categorie gia' tracciati nel buildTreatments con header.onclick
-}
 

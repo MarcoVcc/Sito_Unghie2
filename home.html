@@ -15,7 +15,7 @@
   <script src="site-config.js"></script>
 </head>
 
-<body id="top">
+<body id="top" data-page="home">
   <div class="menu-overlay" id="menuOverlay"></div>
   <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <div class="menu-header">
@@ -134,19 +134,40 @@
           <h3>Contatti</h3>
           <div class="footer-line">
             <div class="social-row">
-              <a href="https://wa.me/393515378793" target="_blank" aria-label="Contatta su WhatsApp" onclick="trackUmamiEvent('Click WhatsApp')">
+              <a
+                href="https://wa.me/393515378793"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contatta su WhatsApp"
+                data-contact-channel="whatsapp"
+                data-contact-source="footer_icon"
+              >
                 <img src="icons/icons8-whatsapp.svg" alt="WhatsApp">
               </a>
             </div>
-            <a class="footer-link" href="tel:+393515378793">+39 351 537 8793</a>
+            <a class="footer-link" href="tel:+393515378793" data-contact-channel="phone" data-contact-source="footer_text">+39 351 537 8793</a>
           </div>
           <div class="footer-line">
             <div class="social-row">
-              <a href="https://www.instagram.com/unghiamo_" target="_blank" aria-label="Instagram" onclick="trackUmamiEvent('Click Instagram')">
+              <a
+                href="https://www.instagram.com/unghiamo_"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                data-contact-channel="instagram"
+                data-contact-source="footer_icon"
+              >
                 <img src="icons/icons8-instagram.svg" alt="Instagram">
               </a>
             </div>
-            <a class="footer-link" href="https://www.instagram.com/unghiamo_" target="_blank" onclick="trackUmamiEvent('Click Instagram')">@unghiamo_</a>
+            <a
+              class="footer-link"
+              href="https://www.instagram.com/unghiamo_"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-contact-channel="instagram"
+              data-contact-source="footer_text"
+            >@unghiamo_</a>
           </div>
         </div>
         <div class="footer-block">
