@@ -1306,7 +1306,7 @@ body.menu-open {
 }
 
 .cert-zoom-landscape .cert-preview-frame {
-  aspect-ratio: 842 / 595;
+  aspect-ratio: 842 / 650;
 }
 
 .cert-zoom-portrait .cert-preview-frame {
