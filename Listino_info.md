@@ -24,12 +24,7 @@ Gel da 55€
         Corto 60€
         Medio 65€
         Lungo 70€
-    "Tutti i trattamenti sono comprensivi di nail art base.
-
-Per nail art più complesse potrebbe essere richiesto un supplemento.
-Il french è compreso nel prezzo solo se eseguito su base gel.
-
-Tutti i refill sono da intendersi correttivi, poiché lavoro solo con tecnica slim, natural slim e balance."
+    "Tutti i refill sono da intendersi correttivi, poiché lavoro solo con tecnica slim, natural slim e balance."
 
 Allungamento da 70€
     Ricostruzione 70€
@@ -51,7 +46,7 @@ Rimozione da 8€
 Nail art
     French +4€
     Nail art da 2€
-    Swarovski 0,50€
+    Swarovski da 0,50€
 
 Forme estreme da 90€
     Muretto o stiletto da 90€
@@ -71,7 +66,7 @@ Fine Line Tattoo da 50€
 
 Laminazione ciglia da 45€
     Laminazione ciglia 1ª seduta 60€
-    Laminazione ciglia refill* 45€
+    Laminazione ciglia refill 45€
 
 Epilazione viso da 5€
     Epilazione sopracciglia 5€
@@ -82,11 +77,6 @@ Epilazione corpo da 15€
     Inguine totale 30€
     Inguine bikini 25€
     Ascelle 15€
-
-Massaggi da 45€
-    Massaggio relax schiena 25' 45€
-    Massaggio relax 50' 65€
-    Massaggio emolinfatico gambe 35' 55€
 
 ## Dettagli trattamenti
 
@@ -99,60 +89,60 @@ Manicure ad olio
     Tempo: 30 min
 
 Semipermanente corto
-    Descrizione: Il semipermanente è uno smalto ibrido, a metà tra quello tradizionale e il gel, che si applica sull'unghia naturale e si asciuga sotto lampada LED. Garantisce alta brillantezza e resistenza alle sbeccature, mantenendo l'unghia naturale senza bisogno di ricostruzioni e allungamenti.
-    Tempo: 60 min
+    Descrizione: Il semipermanente è uno smalto ibrido, a metà tra quello tradizionale e il gel, che si applica sull'unghia naturale e si asciuga sotto lampada LED. Garantisce alta brillantezza e resistenza alle sbeccature, mantenendo l'unghia naturale senza bisogno di ricostruzioni e allungamenti. Lunghezza < 1,5 cm.
+    Tempo: 75 min
 
 Semipermanente medio
-    Descrizione: Il semipermanente è uno smalto ibrido, a metà tra quello tradizionale e il gel, che si applica sull'unghia naturale e si asciuga sotto lampada LED. Garantisce alta brillantezza e resistenza alle sbeccature, mantenendo l'unghia naturale senza bisogno di ricostruzioni e allungamenti.
-    Tempo: 60 min
+    Descrizione: Il semipermanente è uno smalto ibrido, a metà tra quello tradizionale e il gel, che si applica sull'unghia naturale e si asciuga sotto lampada LED. Garantisce alta brillantezza e resistenza alle sbeccature, mantenendo l'unghia naturale senza bisogno di ricostruzioni e allungamenti. Lunghezza tra 1,5 cm e 2 cm.
+    Tempo: 75 min
 
 Semipermanente lungo
-    Descrizione: Il semipermanente è uno smalto ibrido, a metà tra quello tradizionale e il gel, che si applica sull'unghia naturale e si asciuga sotto lampada LED. Garantisce alta brillantezza e resistenza alle sbeccature, mantenendo l'unghia naturale senza bisogno di ricostruzioni e allungamenti.
-    Tempo: 60 min
+    Descrizione: Il semipermanente è uno smalto ibrido, a metà tra quello tradizionale e il gel, che si applica sull'unghia naturale e si asciuga sotto lampada LED. Garantisce alta brillantezza e resistenza alle sbeccature, mantenendo l'unghia naturale senza bisogno di ricostruzioni e allungamenti. Lunghezza > 2 cm.
+    Tempo: 75 min
 
 Semipermanente rinforzato corto
-    Descrizione: Il semipermanente rinforzato è un trattamento che, grazie a una base specifica, dona maggiore solidità all’unghia naturale, migliorandone l’aspetto e la resistenza, per un risultato curato, uniforme e naturale.
-    Tempo: 60 min
+    Descrizione: Il semipermanente rinforzato è un trattamento che, grazie a una base specifica, dona maggiore solidità all’unghia naturale, migliorandone l’aspetto e la resistenza, per un risultato curato, uniforme e naturale. Lunghezza < 1,5 cm.
+    Tempo: 75 min
 
 Semipermanente rinforzato medio
-    Descrizione: Il semipermanente rinforzato è un trattamento che, grazie a una base specifica, dona maggiore solidità all’unghia naturale, migliorandone l’aspetto e la resistenza, per un risultato curato, uniforme e naturale.
-    Tempo: 60 min
+    Descrizione: Il semipermanente rinforzato è un trattamento che, grazie a una base specifica, dona maggiore solidità all’unghia naturale, migliorandone l’aspetto e la resistenza, per un risultato curato, uniforme e naturale. Lunghezza tra 1,5 cm e 2 cm.
+    Tempo: 75 min
 
 Semipermanente rinforzato lungo
-    Descrizione: Il semipermanente rinforzato è un trattamento che, grazie a una base specifica, dona maggiore solidità all’unghia naturale, migliorandone l’aspetto e la resistenza, per un risultato curato, uniforme e naturale.
-    Tempo: 60 min
+    Descrizione: Il semipermanente rinforzato è un trattamento che, grazie a una base specifica, dona maggiore solidità all’unghia naturale, migliorandone l’aspetto e la resistenza, per un risultato curato, uniforme e naturale. Lunghezza > 2 cm.
+    Tempo: 75 min
 
 Semipermanente piedi
     Descrizione: I vantaggi rispetto allo smalto classico sono brillantezza duratura, resistenza, asciugatura istantanea e piedi in ordine dalle 4 alle 6 settimane. Non vengono trattati calli.
     Tempo: 60 min
 
 Copertura in gel (prima applicazione) - Mini
-    Descrizione: La copertura in gel è un trattamento estetico che rinforza l'unghia naturale stendendo uno strato di gel costruttore, senza allungarla. Si effettua su unghie prive di prodotto precedente. Protegge le unghie fragili e corregge le imperfezioni dell'unghia, con un effetto naturale e resistente agli urti. Si differenzia dalla ricostruzione perché mantiene la lunghezza naturale.
-    Tempo: TO CHANGE
+    Descrizione: Lunghezza sotto il polpastrello. La copertura in gel è un trattamento estetico che rinforza l'unghia naturale stendendo uno strato di gel costruttore, senza allungarla. Si effettua su unghie prive di prodotto precedente. Protegge le unghie fragili e corregge le imperfezioni dell'unghia, con un effetto naturale e resistente agli urti. Si differenzia dalla ricostruzione perché mantiene la lunghezza naturale.
+    Tempo: 90 min
 
 Copertura in gel (prima applicazione) - Corta
-    Descrizione: La copertura in gel è un trattamento estetico che rinforza l'unghia naturale stendendo uno strato di gel costruttore, senza allungarla. Si effettua su unghie prive di prodotto precedente. Protegge le unghie fragili e corregge le imperfezioni dell'unghia, con un effetto naturale e resistente agli urti. Si differenzia dalla ricostruzione perché mantiene la lunghezza naturale.
-    Tempo: TO CHANGE
+    Descrizione: Lunghezza < 1,5 cm. La copertura in gel è un trattamento estetico che rinforza l'unghia naturale stendendo uno strato di gel costruttore, senza allungarla. Si effettua su unghie prive di prodotto precedente. Protegge le unghie fragili e corregge le imperfezioni dell'unghia, con un effetto naturale e resistente agli urti. Si differenzia dalla ricostruzione perché mantiene la lunghezza naturale.
+    Tempo: 90 min
 
 Copertura in gel (prima applicazione) - Media
-    Descrizione: La copertura in gel è un trattamento estetico che rinforza l'unghia naturale stendendo uno strato di gel costruttore, senza allungarla. Si effettua su unghie prive di prodotto precedente. Protegge le unghie fragili e corregge le imperfezioni dell'unghia, con un effetto naturale e resistente agli urti. Si differenzia dalla ricostruzione perché mantiene la lunghezza naturale.
-    Tempo: TO CHANGE
+    Descrizione: Lunghezza 1,5 cm - 2 cm. La copertura in gel è un trattamento estetico che rinforza l'unghia naturale stendendo uno strato di gel costruttore, senza allungarla. Si effettua su unghie prive di prodotto precedente. Protegge le unghie fragili e corregge le imperfezioni dell'unghia, con un effetto naturale e resistente agli urti. Si differenzia dalla ricostruzione perché mantiene la lunghezza naturale.
+    Tempo: 105 min
 
 Copertura in gel (prima applicazione) - Lunga
-    Descrizione: La copertura in gel è un trattamento estetico che rinforza l'unghia naturale stendendo uno strato di gel costruttore, senza allungarla. Si effettua su unghie prive di prodotto precedente. Protegge le unghie fragili e corregge le imperfezioni dell'unghia, con un effetto naturale e resistente agli urti. Si differenzia dalla ricostruzione perché mantiene la lunghezza naturale.
-    Tempo: TO CHANGE
+    Descrizione: Lunghezza > 2 cm. La copertura in gel è un trattamento estetico che rinforza l'unghia naturale stendendo uno strato di gel costruttore, senza allungarla. Si effettua su unghie prive di prodotto precedente. Protegge le unghie fragili e corregge le imperfezioni dell'unghia, con un effetto naturale e resistente agli urti. Si differenzia dalla ricostruzione perché mantiene la lunghezza naturale.
+    Tempo: 105 min
 
 Refill mini
-    Descrizione: Lunghezza mini. Da effettuare ogni mese, per coprire la ricrescita naturale.
-    Tempo: TO CHANGE
+    Descrizione: Lunghezza sotto il polpastrello. Da effettuare ogni mese, per coprire la ricrescita naturale.
+    Tempo: 90 min
 
 Refill corto
     Descrizione: Lunghezza <1,5 cm. Da effettuare ogni mese, per coprire la ricrescita naturale.
-    Tempo: 75 min
+    Tempo: 90 min
 
 Refill medio
     Descrizione: Lunghezza tra 1,5 cm e 2 cm. Da effettuare ogni mese, per coprire la ricrescita naturale.
-    Tempo: 90 min
+    Tempo: 105 min
 
 Refill lungo
     Descrizione: Lunghezza >2 cm. Da effettuare ogni mese, per coprire la ricrescita naturale.
@@ -163,8 +153,8 @@ Ricostruzione
     Tempo: 90 min
 
 Ricostruzione onicofagia
-    Descrizione: La ricostruzione unghie è un trattamento estetico professionale finalizzato all'allungamento delle unghie naturali. Questa tecnica corregge le imperfezioni, rinforza le unghie fragili e risolve l'onicofagia.
-    Tempo: TO CHANGE
+    Descrizione: Trattamento specifico per persone onicofagiche (persone che si mangiano le unghie). Aiuta a rinforzare e proteggere l'unghia, favorendone la ricrescita e migliorandone progressivamente l'aspetto. Ideale per chi desidera smettere di mangiarsi le unghie e ritrovare mani curate ed eleganti.
+    Tempo: 90 min
 
 Riparazione 1 unghia - Con appuntamento apposito
     Descrizione: Riparazione di 1 unghia con appuntamento apposito.
@@ -172,15 +162,15 @@ Riparazione 1 unghia - Con appuntamento apposito
 
 Riparazione 1 unghia - In fase di refill
     Descrizione: Riparazione di 1 unghia in fase di refill.
-    Tempo: 10 min
+    Tempo: 
 
 Rimozione semi - Senza manicure
     Descrizione: La rimozione è il processo tecnico di eliminazione dello smalto dalla lamina ungueale, effettuato tramite limatura delicata. Non comprende la manicure
-    Tempo: 15 min
+    Tempo: 10 min
 
 Rimozione semi - Con manicure
     Descrizione: La rimozione è il processo tecnico di eliminazione dello smalto dalla lamina ungueale, effettuato tramite limatura delicata. Comprende la manicure.
-    Tempo: TO CHANGE
+    Tempo: 30 min
 
 Rimozione gel - Senza manicure
     Descrizione: La rimozione è il processo tecnico di eliminazione del gel dalla lamina ungueale, effettuato tramite limatura delicata. Non comprende la manicure.
@@ -188,22 +178,22 @@ Rimozione gel - Senza manicure
 
 Rimozione gel - Con manicure
     Descrizione: La rimozione è il processo tecnico di eliminazione del gel dalla lamina ungueale, effettuato tramite limatura delicata. Comprende la manicure.
-    Tempo: TO CHANGE
+    Tempo: 30 min
 
 French
-    Descrizione: TO CHANGE
-    Tempo: TO CHANGE
+    Descrizione: Nail art caratterizzata da una base naturale e una lunetta bianca o colorata sul bordo libero dell'unghia. La french manicure è versatile, adatta a tutte le occasioni e stili, e valorizza la forma naturale dell'unghia.
+    Tempo: 
 
 Nail art
-    Descrizione: TO CHANGE
-    Tempo: TO CHANGE
+    Descrizione: Nail art personalizzata con dettagli e colori vivaci. Ideale per chi desidera aggiungere un tocco di originalità e stile alle proprie unghie.
+    Tempo: 
 
 Swarovski
-    Descrizione: TO CHANGE
-    Tempo: TO CHANGE
+    Descrizione: Applicazione di Swarovski, cristalli di alta qualità che donano un effetto brillante e lussuoso alle unghie. Ideale per chi desidera un tocco di glamour e raffinatezza.
+    Tempo: 
 
 Muretto o stiletto
-    Descrizione: La ricostruzione muretto (o French muretto) è una tecnica avanzata di nail art che crea una french tridimensionale direttamente in struttura. Consiste nel costruire un bordo netto e rialzato ("muretto"), separando nettamente il letto ungueale dalla punta bianca o colorata, garantendo una smile-line perfetta.
+    Descrizione: La ricostruzione muretto (o French muretto) è una tecnica avanzata di nail art che crea una french tridimensionale direttamente in struttura. La forma a stiletto è caratterizzata da un'estremità appuntita e richiede una determinata lunghezza per essere realizzata.
     Tempo: 150 min
 
 PMU sopracciglia / labbra
@@ -238,7 +228,7 @@ Laminazione ciglia 1ª seduta
     Descrizione: La laminazione ciglia è un trattamento estetico che esalta le ciglia naturali: le incurva, ispessisce e nutre, creando un effetto "lifting" e "mascara" prolungato. Le ciglia vengono posizionate su un bigodino di silicone e trattate con prodotti che le modellano e le sollevano dalla base. Si può applicare una tinta per intensificare il colore, simulando l'effetto mascara. Si conclude con oli nutrienti per sigillare il trattamento e renderle lucide e forti. L'effetto dura circa 4-6 settimane, seguendo il ciclo di ricrescita delle ciglia. È un'ottima opzione per chi non vuole extension o non vuole dipendere dal piegaciglia e dal mascara quotidiano.
     Tempo: 60 min
 
-Laminazione ciglia refill*
+Laminazione ciglia refill
     Descrizione: Si intende refill se effettuato tra le 6 e le 8 settimane dalla seduta precedente.
     Tempo: 60 min
 
@@ -265,15 +255,3 @@ Inguine bikini
 Ascelle
     Descrizione: L'epilazione ascelle cera brasiliana è un trattamento di rimozione totale dei peli effettuato senza strisce di tessuto. Utilizza una speciale cera che ingloba il pelo, agendo in modo più delicato e meno doloroso rispetto alla ceretta classica. La cera brasiliana si applica direttamente e si rimuove una volta solidificata, senza aderire alla pelle. È perfetta per zone delicate perché riduce il rischio di peli incarniti e irritazioni. Il risultato dura solitamente tra le 4 e le 6 settimane, indebolendo il pelo nel tempo. È efficace anche su peli corti.
     Tempo: 15 min
-
-Massaggio relax schiena 25'
-    Descrizione: Il massaggio relax schiena è un trattamento manuale volto a sciogliere le tensioni muscolari, alleviando contratture e stress accumulati su dorsali, zona lombare e cervicale. Attraverso manovre lente, sfioramenti e impastamenti, promuove il rilassamento psicofisico, migliora la circolazione sanguigna e dona un immediato senso di benessere e sollievo.
-    Tempo: 25 min
-
-Massaggio relax 50'
-    Descrizione: Il massaggio relax total body è una pratica olistica che coinvolge l'intero corpo, dai piedi alla testa, utilizzando manovre lente, avvolgenti e delicate per sciogliere le tensioni muscolari, ridurre lo stress e stimolare la circolazione sanguigna. Mira a ripristinare l'equilibrio psicofisico e il benessere profondo.
-    Tempo: 50 min
-
-Massaggio emolinfatico gambe 35'
-    Descrizione: Il massaggio emolinfatico gambe è una tecnica olistica e modellante che, attraverso manipolazioni lente, ritmiche e profonde, stimola la circolazione sanguigna e linfatica. Agisce efficacemente contro la ritenzione idrica, la cellulite, il gonfiore e la sensazione di pesantezza, favorendo il drenaggio dei liquidi dai tessuti e l'eliminazione delle tossine.
-    Tempo: 35 min

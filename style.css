@@ -432,7 +432,7 @@
   --filter-bg-active: #AFC9D6;
   --filter-text-active: #1F2A30;
   --accent: #4F9FBF;
-  --accent-strong: #b01414;
+  --accent-strong: #1462b0;
   --accent-contrast: #FFFFFF;
   --surface: rgba(255,255,255,0.85);
   --surface-strong: rgba(255,255,255,0.98);
@@ -1126,21 +1126,6 @@ body.menu-open {
   margin-bottom: 0;
 }
 
-.service-grid {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.service-item {
-  padding: 14px 16px;
-  background: var(--surface);
-  border-radius: 999px;
-  border: 1px solid var(--border-soft);
-  font-weight: 600;
-  text-align: center;
-}
-
 .cards {
   display: grid;
   gap: 16px;
@@ -1569,10 +1554,6 @@ body.treatment-modal-open {
 
   .cert-card-portrait {
     width: 170px;
-  }
-
-  .service-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .footer-grid {

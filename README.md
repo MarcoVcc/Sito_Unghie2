@@ -1,15 +1,34 @@
-# Gestione Contenuti
+# Gestione contenuti
 
-Questo progetto usa due file JSON per gestire i contenuti senza toccare il codice principale:
+Questo progetto permette di aggiornare quasi tutto senza toccare la logica principale del sito.
+
+I file che userai piu spesso sono:
 
 1. `treatments.json`
-2. `events.json`
+2. `Listino_info.md`
+3. `events.json`
+4. `site-config.js`
 
-In piu' c'e' un file di configurazione:
+## Flusso consigliato per il listino
 
-3. `site-config.js`
+Il flusso normale consigliato e questo:
 
-Modifica questi file per aggiornare contenuti e configurazione senza toccare la logica principale.
+1. aggiorna `Listino_info.md`
+2. usa la skill `update-listino-from-markdown`
+3. sincronizza `treatments.json`
+4. controlla il sito
+
+Questo e il flusso migliore quando stai cambiando struttura, prezzi, note o sottocategorie.
+
+## Eccezione: se modifichi prima `treatments.json`
+
+Se per una volta aggiorni direttamente `treatments.json`, poi devi riallineare `Listino_info.md` al JSON.
+
+In pratica:
+
+1. `treatments.json` diventa la fonte vera
+2. `Listino_info.md` va rigenerato o corretto per riflettere esattamente il JSON
+3. non devono restare sezioni, prezzi o dettagli vecchi nel markdown
 
 ## `site-config.js`
 
@@ -30,22 +49,21 @@ window.SITE_CONFIG = {
 2. Prima del push sul sito ufficiale: imposta `umamiEnabled: true`
 3. Se non vuoi tracciare nulla: lascia sempre `false`
 
-Con `false`, Umami non viene neppure caricato e quindi non sporca le statistiche.
+Con `false`, Umami non viene caricato e non sporca le statistiche.
 
-## Regole Generali
+## Regole generali
 
-1. Usa sempre le virgolette doppie `"`.
-2. Dopo ogni blocco, se ce n'e' un altro sotto, serve la virgola.
+1. Usa sempre virgolette doppie `"`.
+2. Dopo ogni blocco, se sotto ce n'e un altro, serve la virgola.
 3. Non lasciare virgole finali dopo l'ultimo elemento.
-4. Gli asset vanno salvati nelle cartelle giuste dentro `Immagini/` e richiamati con il percorso corretto.
-5. Se qualcosa non appare sul sito, controlla prima che il JSON sia scritto correttamente.
+4. Se qualcosa non appare sul sito, controlla prima che JSON e percorsi immagini siano corretti.
 
 ## Struttura immagini e PDF
 
 Usa questa struttura per tenere in ordine il progetto:
 
-1. `Immagini/Attestati` per i PDF degli attestati
-2. `Immagini/Eventi` per le immagini di eventi e promozioni
+1. `Immagini/Attestati` per attestati e relative anteprime
+2. `Immagini/Eventi` per immagini eventi e promozioni
 3. `Immagini/Generiche` per logo, foto profilo e immagini varie
 4. `Immagini/Trattamenti` per le immagini dei trattamenti
 
@@ -53,14 +71,14 @@ Esempi di percorsi corretti:
 
 1. `Immagini/Eventi/Img_WorkshopArmocromia.png`
 2. `Immagini/Generiche/logo.png`
-3. `Immagini/Trattamenti/Kombi_Manicure/1.jpg`
-4. `Immagini/Attestati/Attestato_CactusNailManicure.pdf`
+3. `Immagini/Generiche/Img_ChiSono.png`
+4. `Immagini/Attestati/Attestato_CactusNailManicure.png`
 
 ## `events.json`
 
 Serve per la sezione `Eventi e offerte` della home.
 
-Ogni elemento sta dentro `items` e puo' essere di due tipi:
+Ogni elemento sta dentro `items` e puo essere di due tipi:
 
 1. `event`
 2. `promo`
@@ -69,23 +87,23 @@ Ogni elemento ha anche il campo:
 
 1. `active`
 
-Se `active` e' `true`, l'elemento compare sul sito.
-Se `active` e' `false`, l'elemento resta salvato ma non viene mostrato.
+Se `active` e `true`, l'elemento compare sul sito.
+Se `active` e `false`, l'elemento resta salvato ma non viene mostrato.
 
 ### Campi disponibili
 
 1. `type`: `"event"` oppure `"promo"`
 2. `active`: `true` oppure `false`
 3. `title`: titolo della card
-4. `tag`: piccolo badge, per esempio `"Workshop"` o `"Attiva"` o `"19 aprile | 15:00 - 18:00"`
+4. `tag`: badge piccolo
 5. `caption`: testo descrittivo
-6. `price`: testo in evidenza, per esempio `"10 euro"` o `"da 30 euro"`
-7. `subtitle`: testo secondario sotto o accanto al prezzo
-8. `image`: percorso immagine, facoltativo, usato soprattutto per gli eventi
-9. `imageAlt`: testo alternativo immagine
+6. `price`: testo in evidenza
+7. `subtitle`: testo secondario
+8. `image`: percorso immagine, facoltativo
+9. `imageAlt`: testo alternativo
 10. `ctaLabel`: testo del link finale
 11. `ctaUrl`: link finale
-12. `ctaType`: per ora puoi usare `"instagram"` oppure `"whatsapp"`
+12. `ctaType`: `"instagram"` oppure `"whatsapp"`
 
 ### Esempio evento
 
@@ -106,83 +124,151 @@ Se `active` e' `false`, l'elemento resta salvato ma non viene mostrato.
 }
 ```
 
-### Esempio promo ricorrente non attiva
-
-```json
-{
-  "type": "promo",
-  "active": false,
-  "title": "Promo manicure",
-  "tag": "Promo",
-  "caption": "Manicure con trattamento rinforzante e finish luminoso.",
-  "price": "da 25 euro"
-}
-```
-
-### Come attivare una promo salvata
-
-Se hai una promo gia' nel file e vuoi mostrarla:
-
-```json
-"active": true
-```
-
-Se vuoi nasconderla senza cancellarla:
-
-```json
-"active": false
-```
-
 ## `treatments.json`
 
 Serve per il listino trattamenti.
 
-La struttura e':
+La struttura attuale e:
 
 1. `categories`
 2. dentro ogni categoria ci sono le `sections`
-3. dentro ogni sezione ci sono i `treatments`
+3. dentro ogni sezione ci sono gli `items`
+4. ogni item puo essere:
+   - un `treatment`
+   - un `group` con dentro altri `treatments`
 
 ### Campi categoria
 
 1. `id`: identificativo tecnico, per esempio `"unghie"`
 2. `label`: nome visibile del filtro
-3. `sections`: elenco delle sezioni interne
+3. `icon`: icona del filtro
+4. `sections`: elenco sezioni
 
 ### Campi sezione
 
-1. `title`: nome della sezione
-2. `fromPrice`: prezzo da mostrare accanto al titolo, facoltativo
-3. `treatments`: elenco trattamenti
+1. `title`: titolo sezione
+2. `fromPrice`: prezzo da mostrare vicino al titolo, facoltativo
+3. `items`: contenuto della sezione
 4. `notes`: note finali facoltative
 
-### Campi trattamento
-
-1. `name`: nome trattamento
-2. `price`: prezzo
-3. `duration`: durata
-4. `description`: descrizione nel popup
-5. `image`: percorso immagine del popup
-
-### Esempio trattamento
+### Item diretto di tipo `treatment`
 
 ```json
 {
+  "type": "treatment",
   "name": "Kombi Manicure",
-  "price": 20,
+  "price": 25,
   "duration": "30 min",
   "description": "Descrizione del trattamento.",
   "image": "Immagini/Generiche/logo.png"
 }
 ```
 
+### Item di tipo `group`
+
+```json
+{
+  "type": "group",
+  "title": "Refill",
+  "fromPrice": 55,
+  "treatments": [
+    {
+      "type": "treatment",
+      "name": "Refill corto",
+      "label": "Corto",
+      "price": 60,
+      "duration": "90 min",
+      "description": "Descrizione del trattamento.",
+      "image": "Immagini/Generiche/logo.png"
+    }
+  ]
+}
+```
+
+### Campi trattamento
+
+1. `type`: sempre `"treatment"`
+2. `name`: nome completo del trattamento
+3. `label`: testo breve facoltativo mostrato nel listino
+4. `price`: prezzo
+5. `duration`: durata nel modal
+6. `description`: descrizione nel modal
+7. `image`: immagine nel modal
+
+## `Listino_info.md`
+
+Serve come versione leggibile e facile da modificare del listino.
+
+Ha due parti:
+
+1. struttura del listino in alto
+2. blocco `## Dettagli trattamenti` in fondo
+
+### Regole della struttura
+
+1. riga senza indentazione = sezione
+2. riga con una indentazione = trattamento diretto, gruppo o nota
+3. riga con due indentazioni = trattamento finale dentro un gruppo
+4. le note devono stare tra virgolette
+
+Esempio:
+
+```md
+Gel da 55€
+    Copertura in gel (prima applicazione) da 55€
+        Mini 55€
+        Corta 60€
+    "Nota della sezione."
+```
+
+## Skill del listino
+
+Ho creato la skill qui:
+
+1. `C:\Users\marco\.codex\skills\update-listino-from-markdown\SKILL.md`
+2. `C:\Users\marco\.codex\skills\update-listino-from-markdown\references\format.md`
+
+### Cosa fa
+
+La skill:
+
+1. legge `Listino_info.md`
+2. confronta la struttura con `treatments.json`
+3. aggiorna il JSON
+4. aggiorna il blocco `## Dettagli trattamenti`
+5. controlla se servono modifiche a `script.js`, `style.css` o `index.html`
+6. si ferma a chiedere chiarimenti se trova ambiguita
+
+### Quando la skill fa domande
+
+La skill chiede chiarimenti se:
+
+1. una nota non e tra virgolette
+2. una gerarchia e ambigua
+3. un prezzo e scritto in modo incoerente
+4. un trattamento nuovo non ha un mapping sicuro
+5. la nuova struttura richiede di cambiare il comportamento della UI
+
+### Esempio di richiesta
+
+```text
+Usa update-listino-from-markdown per sincronizzare Updated/Listino_info.md con Updated/treatments.json.
+```
+
 ## Flusso pratico consigliato
 
-1. Per aggiungere un evento o una promo: modifica `events.json`.
-2. Per aggiungere o modificare un trattamento: modifica `treatments.json`.
-3. Per nascondere una promo senza eliminarla: metti `"active": false`.
-4. Per mostrare una promo gia' pronta: rimetti `"active": true`.
+### Caso standard
+
+1. modifica `Listino_info.md`
+2. usa la skill
+3. controlla il risultato nel sito
+
+### Caso eccezionale
+
+1. modifichi prima `treatments.json`
+2. riallinei `Listino_info.md`
+3. controlli che menu, ancore e UI del listino siano ancora coerenti
 
 ## Nota utile
 
-Se apri il sito direttamente come file locale e qualcosa non compare, puo' dipendere dal `fetch` dei JSON. In quel caso conviene aprire il progetto con un piccolo server locale.
+Se apri il sito direttamente come file locale e qualcosa non compare, puo dipendere dal `fetch` dei JSON. In quel caso conviene aprire il progetto con un piccolo server locale.
