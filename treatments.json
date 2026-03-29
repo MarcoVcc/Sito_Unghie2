@@ -316,7 +316,7 @@
 							"name": "French",
 							"price": "+4",
 							"duration": "",
-							"description": "Nail art caratterizzata da una base naturale e una lunetta bianca o colorata sul bordo libero dell'unghia, creando un contrasto elegante e classico. \n\nLa french manicure è versatile, adatta a tutte le occasioni e stili, e valorizza la forma naturale dell'unghia.",
+							"description": "Nail art caratterizzata da una base naturale e una lunetta bianca o colorata sul bordo libero dell'unghia. \n\nLa french manicure è versatile, adatta a tutte le occasioni e stili, e valorizza la forma naturale dell'unghia.",
 							"image": "Immagini/Generiche/logo.png"
 						},
 						{
@@ -330,7 +330,7 @@
 						{
 							"type": "treatment",
 							"name": "Swarovski",
-							"price": "0,50",
+							"price": "da 0,50",
 							"duration": "",
 							"description": "Applicazione di Swarovski, cristalli di alta qualità che donano un effetto brillante e lussuoso alle unghie. \n\nIdeale per chi desidera un tocco di glamour e raffinatezza.",
 							"image": "Immagini/Generiche/logo.png"
@@ -345,7 +345,7 @@
 							"name": "Muretto o stiletto",
 							"price": "da 90",
 							"duration": "150 min",
-							"description": "La ricostruzione muretto (o French muretto) è una tecnica avanzata di nail art che crea una french tridimensionale direttamente in struttura. \n\nConsiste nel costruire un bordo netto e rialzato (\"muretto\"), separando nettamente il letto ungueale dalla punta bianca o colorata, garantendo una smile-line perfetta.",
+							"description": "La ricostruzione muretto (o French muretto) è una tecnica avanzata di nail art che crea una french tridimensionale direttamente in struttura. \n\nLa forma a stiletto è caratterizzata da un'estremità appuntita e richiede una determinata lunghezza per essere realizzata.",
 							"image": "Immagini/Generiche/logo.png"
 						}
 					],
@@ -456,7 +456,7 @@
 						},
 						{
 							"type": "treatment",
-							"name": "Laminazione ciglia refill*",
+							"name": "Laminazione ciglia refill",
 							"price": 45,
 							"duration": "60 min",
 							"description": "Si intende refill se effettuato tra le 6 e le 8 settimane dalla seduta precedente.",
@@ -524,36 +524,6 @@
 						}
 					],
 					"fromPrice": 15
-				},
-				{
-					"title": "Massaggi",
-					"items": [
-						{
-							"type": "treatment",
-							"name": "Massaggio relax schiena 25'",
-							"price": 45,
-							"duration": "25 min",
-							"description": "Il massaggio relax schiena è un trattamento manuale volto a sciogliere le tensioni muscolari, alleviando contratture e stress accumulati su dorsali, zona lombare e cervicale. \n\nAttraverso manovre lente, sfioramenti e impastamenti, promuove il rilassamento psicofisico, migliora la circolazione sanguigna e dona un immediato senso di benessere e sollievo.",
-							"image": "Immagini/Generiche/logo.png"
-						},
-						{
-							"type": "treatment",
-							"name": "Massaggio relax 50'",
-							"price": 65,
-							"duration": "50 min",
-							"description": "Il massaggio relax total body è una pratica olistica che coinvolge l'intero corpo, dai piedi alla testa, utilizzando manovre lente, avvolgenti e delicate per sciogliere le tensioni muscolari, ridurre lo stress e stimolare la circolazione sanguigna. \n\nMira a ripristinare l'equilibrio psicofisico e il benessere profondo.",
-							"image": "Immagini/Generiche/logo.png"
-						},
-						{
-							"type": "treatment",
-							"name": "Massaggio emolinfatico gambe 35'",
-							"price": 55,
-							"duration": "35 min",
-							"description": "Il massaggio emolinfatico gambe è una tecnica olistica e modellante che, attraverso manipolazioni lente, ritmiche e profonde, stimola la circolazione sanguigna e linfatica. \n\nAgisce efficacemente contro la ritenzione idrica, la cellulite, il gonfiore e la sensazione di pesantezza, favorendo il drenaggio dei liquidi dai tessuti e l'eliminazione delle tossine.",
-							"image": "Immagini/Generiche/logo.png"
-						}
-					],
-					"fromPrice": 45
 				}
 			]
 		}
